@@ -1,0 +1,39 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $arial;
+    font-size: $regular_font_size;
+    line-height: $default_line_height;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: $white;
+}
+body.visible {
+    opacity: 1;
+}
+
+a {
+    color: $gray;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus {
+        outline: 0;
+        text-decoration: underline;
+    }
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+header, footer {
+    background-color: $light-gray;
+}

@@ -1,0 +1,46 @@
+.header {
+  height: auto;
+  background-color: white;
+  border-bottom: 1px solid $light-gray;
+  .logo {
+    display: block;
+    margin: 5px 0;
+    text-align: center;
+  }
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  .menu-item {
+    margin: 0 10px;
+    line-height: 40px;
+    font-size: 12px;
+    text-transform: uppercase;
+    a {
+      color: black;
+      text-decoration: none;
+    }
+    &:hover {
+      a {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+ .header{
+   height: 70px;
+   .logo{
+     text-align: left;
+   }
+ }
+  .menu{
+    justify-content: flex-end;
+    .menu-item{
+      margin: 0 20px;
+      line-height: 70px;
+    }
+  }
+}

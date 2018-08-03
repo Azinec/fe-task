@@ -1,0 +1,20 @@
+@import "reset";
+@import "variables";
+@import "mixins";
+
+// Vendor libs
+@import "vendor/normalize";
+
+// Import blocks
+@import "blocks/layout";
+@import "blocks/grid";
+
+// Helpers (must be as last import to override rules when use)
+@import "helpers";
+
+//styles for temlates
+@import "header";
+@import "footer";
+
+// styles for pages
+@import "home";
