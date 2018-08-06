@@ -16,7 +16,8 @@ var gulp = require("gulp"),
     spritesmith = require("gulp.spritesmith"),
     run = require("run-sequence"),
     rimraf = require("rimraf"),
-    webserver = require("browser-sync");
+    browserSync = require("browser-sync").create(),
+    proxy = require('http-proxy-middleware');
 
 // Paths to source/build/watch files
 
@@ -58,18 +59,24 @@ var options = {
 
 // Webserver config
 
+var proxyOptions = proxy('/merolt', {target: 'https://www.merolt.de/inventory/api/esearch/filter', changeOrigin: false});
+// var proxyOptions = proxy('/merolt', {target: 'https://www.example.com/', changeOrigin: false});
+
 var config = {
-    server: "build/",
+    server: {
+        baseDir: "build/",
+        port: 3000,
+        middleware: [proxyOptions]
+    },
     notify: false,
     open: true,
-    ui: false,
-    proxies: [{source: '/merolt', target: 'https://www.merolt.de/inventory/api/esearch/filter'}]
+    ui: false
 };
 
 // Tasks
 
-gulp.task("webserver", function () {
-    webserver(config);
+gulp.task("browser-sync", function () {
+    browserSync.init(config);
 });
 
 gulp.task("html:build", function () {
@@ -78,7 +85,7 @@ gulp.task("html:build", function () {
         .pipe(rigger())
         .pipe(fileinclude(options.fileinclude))
         .pipe(gulp.dest(path.build.html))
-        .pipe(webserver.reload({stream: true}));
+        .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task("css:build", function () {
@@ -100,7 +107,7 @@ gulp.task("css:build", function () {
         .pipe(removeComments())
         .pipe(rename("style.min.css"))
         .pipe(gulp.dest(path.build.css))
-        .pipe(webserver.reload({stream: true}));
+        .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task("js:build", function () {
@@ -111,7 +118,7 @@ gulp.task("js:build", function () {
         .pipe(uglify())
         .pipe(rename("main.min.js"))
         .pipe(gulp.dest(path.build.js))
-        .pipe(webserver.reload({stream: true}));
+        .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task("fonts:build", function () {
@@ -179,7 +186,7 @@ gulp.task("default", function (cb) {
     run(
         "clean",
         "build",
-        "webserver",
+        "browser-sync",
         "watch"
         , cb);
 });

@@ -1,5 +1,6 @@
 $(function () {
     var params = {
+        'maxresult': 50,
         'tags.label': 'INDOOR' // "INDOOR",    "BETRIEBSAUSFLUG",    "OUTDOOR",    "TEAMBUILDING",     "TEAMTAG",    "FUN",    "KICK-OFF"
     };
 
@@ -9,12 +10,12 @@ $(function () {
         $.ajax({
             type: 'GET',
             url: '/merolt',
-            params: params,
-            success: successHandler()
+            data: params,
+            success: successHandler
         });
     }
 
     function successHandler(response) {
-        console.log(response)
+        console.log('response::', response);
     }
 });
