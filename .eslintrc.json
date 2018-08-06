@@ -1,20 +1,10 @@
 {
-  "extends": [
-    "plugin:import/errors",
-    "plugin:import/warnings"
-  ],
   "env": {
-    "browser": true,
-    "es6": true,
-    "jest": true
+    "browser": true
   },
-  "parser": "babel-eslint",
-  "plugins": [
-    "filenames"
-  ],
   "rules": {
     "strict": 0,
-    "no-shadow": 0, // 2
+    "no-shadow": 0,
     "no-shadow-restricted-names": 2,
     "no-unused-vars": [2, {
       "vars": "local",
@@ -140,25 +130,10 @@
       "exceptions": ["-", "+"],
       "markers": ["=", "!"]
     }],
-
     "newline-after-var": [2, "always"],
-    "filenames/match-regex": [2, "^([a-z]*)(-[a-z]+)*(\\.[a-z]+)*$", true]
-  },
-  "settings": {
-    "import/resolver": "webpack"
   },
   "globals": {
-    "angular": true,
     "$": true,
-    "jQuery": true,
-    "Swiper": true,
-    "Piwik": true,
-    "require": true,
-    "CUSTOMER_THEME": true,
-    "CUSTOMER_COMPONENTS": true,
-    "module": true,
-    "exports": true,
-    "Set": true,
-    "appInfo": true
+    "jQuery": true
   }
 }
