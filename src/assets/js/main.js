@@ -8,7 +8,7 @@ $(function () {
     function sendAPIRequest() {
         $.ajax({
             type: 'GET',
-            url: 'https://www.merolt.de/inventory/api/esearch/filter',
+            url: '/merolt',
             params: params,
             success: successHandler()
         });

@@ -62,7 +62,8 @@ var config = {
     server: "build/",
     notify: false,
     open: true,
-    ui: false
+    ui: false,
+    proxies: [{source: '/merolt', target: 'https://www.merolt.de/inventory/api/esearch/filter'}]
 };
 
 // Tasks
