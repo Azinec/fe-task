@@ -113,7 +113,7 @@ gulp.task("js:build", function () {
         .pipe(webserver.reload({stream: true}));
 });
 
-gulp.task("fonts:build", function() {
+gulp.task("fonts:build", function () {
     gulp.src(path.src.fonts)
         .pipe(gulp.dest(path.build.fonts));
 });
@@ -153,32 +153,32 @@ gulp.task('build', function (cb) {
         "js:build",
         "fonts:build",
         "image:build"
-    , cb);
+        , cb);
 });
 
-gulp.task("watch", function() {
-    watch([path.watch.html], function(event, cb) {
+gulp.task("watch", function () {
+    watch([path.watch.html], function (event, cb) {
         gulp.start("html:build");
     });
-    watch([path.watch.css], function(event, cb) {
+    watch([path.watch.css], function (event, cb) {
         gulp.start("css:build");
     });
-    watch([path.watch.js], function(event, cb) {
+    watch([path.watch.js], function (event, cb) {
         gulp.start("js:build");
     });
-    watch([path.watch.img], function(event, cb) {
+    watch([path.watch.img], function (event, cb) {
         gulp.start("image:build");
     });
-    watch([path.watch.fonts], function(event, cb) {
+    watch([path.watch.fonts], function (event, cb) {
         gulp.start("fonts:build");
     });
 });
 
 gulp.task("default", function (cb) {
-   run(
-       "clean",
-       "build",
-       "webserver",
-       "watch"
-   , cb);
+    run(
+        "clean",
+        "build",
+        "webserver",
+        "watch"
+        , cb);
 });
