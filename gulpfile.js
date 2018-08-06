@@ -59,8 +59,7 @@ var options = {
 
 // Webserver config
 
-var proxyOptions = proxy('/merolt', {target: 'https://www.merolt.de/inventory/api/esearch/filter', changeOrigin: false});
-// var proxyOptions = proxy('/merolt', {target: 'https://www.example.com/', changeOrigin: false});
+var proxyOptions = proxy('/inventory', {target: 'https://www.merolt.de', changeOrigin: true});
 
 var config = {
     server: {

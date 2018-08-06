@@ -9,7 +9,7 @@ $(function () {
     function sendAPIRequest() {
         $.ajax({
             type: 'GET',
-            url: '/merolt',
+            url: '/inventory/api/esearch/filter',
             data: params,
             success: successHandler
         });
