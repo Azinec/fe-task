@@ -1,13 +1,26 @@
 $(function () {
     var beerList = [];
-    $.ajax({
-        url: 'https://www.merolt.de/inventory/api/esearch/filter?',
-        success: successHandler
-    });
+    var params = {
+        'tags.label': 'INDOOR'
+    };
+    
+    // "INDOOR",    "BETRIEBSAUSFLUG",    "OUTDOOR",    "TEAMBUILDING",     "TEAMTAG",    "FUN",    "KICK-OFF"
+    
+    sendAPIRequest();
+    
+    function sendAPIRequest() {
+        $.ajax({
+            type: 'GET',
+            url: 'https://www.merolt.de/inventory/api/esearch/filter',
+            params: params,
+            success: successHandler()
+        });
+    }
     
     function successHandler(response) {
-        beerList = response;
-        outputBeerList(beerList);
+        // beerList = response;
+        // outputBeerList(beerList);
+        console.log(response)
     }
     
     function outputBeerList(beerlist) {
@@ -20,10 +33,11 @@ $(function () {
     
     function appendBeerList(beerlist) {
         $.each(beerlist, function () {
-            $('.beer-list').append('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 beerBox"><div class="allBeer" data-toggle="modal" data-target="#myModal" ><div class="image"  style="background-image: url(' +
-                this.image_url + ');"></div><div class="name">' + this.name + '</div><div class="id">' +
-                this.id + '</div><div class="abv">' + this.abv + '% abv</div><div class="tag">' + this.tagline + '</div><button class="show-more"  id="' +
-                this.id + '">Show more</button></div></div>');
+            $('.result-container').append('<div class="container">\n' +
+                '                <div class="row">\n' +
+                '                    <div class="col-md-3 col-sm-4 col-xs-6">\n' +
+                '                        <div class="paket">' + '</div>\n' +
+                '                    </div></div></div>');
         });
     }
     
