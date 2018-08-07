@@ -1,10 +1,9 @@
 $(function () {
     
     var activeTags = [];
-    var latestCallId = 0;
-    sendAPIRequest(++latestCallId);
+    sendAPIRequest();
     
-    function sendAPIRequest(callId, tags) {
+    function sendAPIRequest(tags) {
         var params = {
             'maxresult': 20
         };
@@ -18,17 +17,13 @@ $(function () {
             url: '/inventory/api/esearch/filter',
             data: params,
             success: function (response) {
-                successHandler(callId, response)
+                successHandler(response)
             }
             
         });
     }
     
-    function successHandler(callId, response) {
-        if (latestCallId !== callId) {
-            return;
-        }
-        
+    function successHandler( response) {
         $('.result-container').empty();
         if (!response || !response.length) {
             return;
@@ -44,23 +39,15 @@ $(function () {
         if (!itemTag) {
             return;
         }
-        
-        var isActive = activeTags.find(function (tag) {
-            return tag === itemTag;
-        });
-        
-        if (isActive) {
-            $(this).removeClass("active");
+        $(this).toggleClass("active");
+        if ($(this).hasClass("active")) {
+            activeTags.push(itemTag);
+        } else {
             activeTags = activeTags.filter(function (tag) {
                 return tag !== itemTag;
             });
-        } else {
-            $(this).addClass("active");
-            activeTags.push(itemTag);
         }
         
-        latestCallId = ++latestCallId;
-        
-        sendAPIRequest(latestCallId, activeTags);
+        sendAPIRequest(activeTags);
     })
 });
