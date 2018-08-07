@@ -59,7 +59,7 @@ $(function () {
             activeTags.push(itemTag);
         }
         
-        latestCallId = latestCallId + 1;
+        latestCallId = ++latestCallId;
         
         sendAPIRequest(latestCallId, activeTags);
     })
