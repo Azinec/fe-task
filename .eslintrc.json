@@ -130,7 +130,7 @@
       "exceptions": ["-", "+"],
       "markers": ["=", "!"]
     }],
-    "newline-after-var": [2, "always"],
+    "newline-after-var": [2, "always"]
   },
   "globals": {
     "$": true,
