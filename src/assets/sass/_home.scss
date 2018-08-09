@@ -18,8 +18,8 @@
       opacity: 0;
       cursor: pointer;
       &:checked ~ label {
-        background-color: white;
-        color: rgb(255, 169, 0);
+        background-color: $white;
+        color: $orange
 
       }
     }
@@ -29,17 +29,17 @@
       height: 100%;
       padding: 5px 20px;
       border-radius: 5px;
-      border: 1px solid rgb(255, 169, 0);
-      background-color: rgb(255, 169, 0);
-      color: white;
+      border: 1px solid $orange;
+      background-color: $orange;
+      color: $white;
     }
   }
   input[type="text"] {
     font-size: 12px;
     padding: 5px 25px 5px 5px;
-    background-color: white;
+    background-color: $white;
     border-radius: 5px;
-    border: 1px solid rgb(255, 169, 0);
+    border: 1px solid $orange;
   }
 }
 
@@ -49,7 +49,7 @@
     position: absolute;
     top: 5px;
     right: 5px;
-    color: rgb(255, 169, 0);
+    color: $orange;
   }
 }
 
@@ -64,7 +64,7 @@
     cursor: pointer;
     &.active {
       .fa-heart {
-        color: rgb(255, 169, 0);
+        color: $orange;
       }
     }
     .component-name {
@@ -72,9 +72,9 @@
       top: 10px;
       left: 10px;
       font-size: 8px;
-      color: white;
+      color: $white;
       text-transform: uppercase;
-      background-color: rgba(255, 169, 0, 0.8);
+      background-color: $orange2;
       border-radius: 5px;
       padding: 5px 15px;
     }
@@ -87,10 +87,10 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      color: #fff;
+      color: $white;
       font-size: 18px;
-      box-shadow: black;
-      text-shadow: 0 0 1px  black;
+      box-shadow: $black;
+      text-shadow: 0 0 1px  $black;
     }
   }
   .item1, .item3, .item5, .item7 {
@@ -111,7 +111,7 @@
   .res{
     margin-bottom: 15px;
     min-height: 150px;
-    border: 1px solid rgb(255, 169, 0);
+    border: 1px solid $orange;
     border-radius: 5px;
     overflow: hidden;
   }

@@ -6,9 +6,6 @@ $default_line_height: 1.4;
 // Font family
 $open_sans:   'Open Sans ', sans-serif;
 $arial:       'Arial', sans-serif;
-$pt_sans:     'PT Sans', sans-serif;
-$raleway:     'Raleway', sans-serif;
-$roboto_c:    'Roboto Condensed', sans-serif;
 
 // Font sizes
 
@@ -17,27 +14,12 @@ $title_font_size:   30px;
 
 // Colors
 
-$black:         #3e3e3e;
+$black:         #000;
 $white:         #fff;
-$white2:        #f1f1f1;
-$white3:        #f7f8fa;
-$gray:          #9e9e9e;
-$gray2:         #ededed;
-$gray3:         #999999;
-$gray4:         #efefef;
-$light-gray:    #dedede;
-$dark-gray:     #333;
-$dark-gray2:    #41525c;
-$orange:        #ff6a00;
-$blue:          #0090cd;
-$linger-blue:   #b0e8fe;
-$light-blue:    #299fcd;
-$light-blue2:   #99ccff;
-$dark-blue:     #00a5d3;
-$dark-green:    #2c3d46;
-$dark:          #00212e;
-
-$colors: (gray $gray) (black $black);
+$gray:           #9e9e9e;
+$orange:       #e1a900;
+$orange2:     rgba(255, 169, 0, 0.8);
+$blue:            #0090cd;
 
 // Bootstrap 4 Grid
 
