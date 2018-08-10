@@ -7,9 +7,6 @@
 // Import blocks
 @import "blocks/layout";
 
-// Helpers (must be as last import to override rules when use)
-@import "helpers";
-
 //styles for temlates
 @import "header";
 
