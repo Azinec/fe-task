@@ -27,12 +27,13 @@
 		}
 		$('.result').empty();
 		response.forEach(function(element) {
-			var thumbnails = element.thumbnails,
-					   a = thumbnails.length;
+			var  thumbnail = 'assets/images/no-image.png';
 
-	      	a > 0 ? $('.result').append('<div class="col-md-3 col-sm-4 col-xs-6 ">' +
-						'<div class="res" style="background-image: url(' + thumbnails[0].mediaUrl + '); "><h2 class="title">' + element.title + '</h2></div></div>') : $('.result').append('<div class="col-md-3 col-sm-4 col-xs-6 ">' +
-						'<div class="res" style="background-image: url(assets/images/no-image.png );"><h2 class="title">' + element.title + '</h2></div></div>');
+			       if  ( element.thumbnails.length > 0) {
+							 thumbnail = element.thumbnails[0].mediaUrl;
+						 }
+							 $('.result').append('<div class="col-md-3 col-sm-4 col-xs-6 "><h2 class="title">' + element.title + '</h2>' +
+									 '<div class="result-item" style="background-image: url(' + thumbnail + '); "></div></div>');
 		});
 	}
 

@@ -108,14 +108,15 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin: 30px 0 0;
-  .res{
+  &-item{
     background-position: center;
     background-size: cover;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
     min-height: 150px;
     border: 1px solid $orange;
     border-radius: 5px;
     overflow: hidden;
+    padding-bottom: 30px;
   }
   .description{
     font-size: 12px;
@@ -123,8 +124,8 @@
 
   }
   .title {
+    height: 70px;
     padding: 5px;
-    margin-top: 20px;
     font-size: 14px;
     text-align: center;
     font-weight: bold;
@@ -155,6 +156,11 @@
     }
     .item1, .item3, .item5, .item7 {
       grid-row: span 2;
+    }
+  }
+  .result{
+    .title{
+      height: 50px;
     }
   }
 }
