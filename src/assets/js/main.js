@@ -27,13 +27,13 @@
 		}
 		$('.result').empty();
 		response.forEach(function(element) {
-			var  thumbnail = 'assets/images/no-image.png';
+		var  thumbnail = 'assets/images/no-image.png';
 
-			       if  ( element.thumbnails.length > 0) {
-							 thumbnail = element.thumbnails[0].mediaUrl;
-						 }
-							 $('.result').append('<div class="col-md-3 col-sm-4 col-xs-6 "><h2 class="title">' + element.title + '</h2>' +
-									 '<div class="result-item" style="background-image: url(' + thumbnail + '); "></div></div>');
+		if  ( element.thumbnails.length > 0 ) {
+				thumbnail = element.thumbnails[0].mediaUrl;
+				}
+		$('.result').append('<div class="col-md-3 col-sm-4 col-xs-6 "><h2 class="title">' + element.title + '</h2>' +
+				'<div class="result-item" style="background-image: url(' + thumbnail + '); "></div></div>');
 		});
 	}
 
@@ -41,7 +41,7 @@
 		var itemTag = $(this).attr('data-type');
 		var isActive = $(this).hasClass('active');
 
-		if (!itemTag) {
+	  if (!itemTag) {
 			return;
 		}
 		if (!isActive) {
